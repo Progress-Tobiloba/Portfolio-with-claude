@@ -1,0 +1,184 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #050B14;
+  color: #B2BED6;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Typography Base */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Custom scrollbar - Webkit browsers */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050B14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #04326D;
+  border-radius: 5px;
+  border: 2px solid #050B14;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B2BED6;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-color: #04326D #050B14;
+  scrollbar-width: thin;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #04326D;
+  color: #B2BED6;
+}
+
+::-moz-selection {
+  background-color: #04326D;
+  color: #B2BED6;
+}
+
+/* Link styling */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #F58F20;
+}
+
+/* Focus states for accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid #04326D;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions on interactive elements */
+button,
+a,
+input,
+textarea {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Custom animation for floating elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Utility class for floating animation */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Disable pointer events on non-interactive content */
+.pointer-events-none {
+  pointer-events: none;
+}
+
+/* Ensure images scale properly */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove default button styling */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Code block styling if needed */
+code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  background: rgba(4, 50, 109, 0.2);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  color: #F58F20;
+  font-size: 0.9em;
+}
+
+/* Print styles for accessibility */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  .no-print {
+    display: none;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  body {
+    color: #ffffff;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* Dark mode (already default, but explicit) */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
